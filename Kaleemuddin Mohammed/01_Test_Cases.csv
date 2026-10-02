@@ -1,0 +1,21 @@
+TestCaseID,Module,Scenario,TestData,Expected,Actual,Status,Severity,DefectID
+HB-001,Hotel Search,Search valid destination and dates,Hyderabad; 2026-10-10 to 2026-10-12,Matching hotels displayed,Matching hotels displayed,PASS,,
+HB-002,Hotel Search,Blank destination,blank,Validation message,Validation shown,PASS,,
+HB-003,Date Validation,Check-out before check-in,12 Oct to 10 Oct,Validation error,Validation shown,PASS,,
+HB-004,Date Validation,Same check-in and check-out,10 Oct to 10 Oct,Reject or clearly support day-use,Accepted without explanation,FAIL,Medium,HB-DEF-001
+HB-005,Room Selection,Select available room,Deluxe,Room selected,Room selected,PASS,,
+HB-006,Room Selection,Select sold-out room,Sold out,Selection blocked,Selection blocked,PASS,,
+HB-007,Guest Details,Valid guest details,valid,Details accepted,Details accepted,PASS,,
+HB-008,Guest Details,Invalid email,guest@,Validation error,Validation shown,PASS,,
+HB-009,Guest Details,Blank name,blank,Validation error,Validation shown,PASS,,
+HB-010,Booking,Confirm valid reservation,"1 room, 2 guests",Confirmation with booking ID,Confirmed with booking ID,PASS,,
+HB-011,Booking,Confirm without room,none,Booking blocked,Booking blocked,PASS,,
+HB-012,Booking,Verify total price,2 nights x 4500,9000,9000,PASS,,
+HB-013,Modification,Change reservation dates,move by 1 day,Availability and total refresh,Dates changed; total unchanged,FAIL,High,HB-DEF-002
+HB-014,Modification,Change guest count,2 to 3,Guest count updated,Updated,PASS,,
+HB-015,Cancellation,Cancel confirmed booking,valid booking,CANCELLED,CANCELLED,PASS,,
+HB-016,Cancellation,Cancel already cancelled booking,cancelled,Action blocked,Blocked,PASS,,
+HB-017,Boundary,Maximum guests,4,Accepted,Accepted,PASS,,
+HB-018,Boundary,Above max guests,5,Validation error,Validation shown,PASS,,
+HB-019,Error Handling,Network timeout then retry,timeout,No duplicate reservation,Second reservation ID generated,FAIL,Critical,HB-DEF-003
+HB-020,Usability,Confirmation summary,valid booking,Dates/room/guest/price visible,All visible,PASS,,
